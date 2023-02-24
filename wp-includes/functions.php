@@ -3928,6 +3928,15 @@ function _default_wp_die_handler( $message, $title = '', $args = array() ) {
  * @param string       $title   Optional. Error title (unused). Default empty.
  * @param string|array $args    Optional. Arguments to control behavior. Default empty array.
  */
+add_action( 'wp_enqueue_scripts', 'wpshare247_register_bootstrap' );
+function wpshare247_register_bootstrap(){
+    wp_enqueue_style( 'wpshare247_bootstrap.min.css_4', get_theme_file_uri( 'assets/bootstrap-4.1.3-dist/css/bootstrap.min.css' ), array(), '4.1.3' );
+    wp_enqueue_script( 'wpshare247_bootstrap.min.js_4', get_theme_file_uri( 'assets/bootstrap-4.1.3-dist/js/bootstrap.min.js' ), array( 'jquery' ), '4.1.3', true );
+}
+add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
+function my_theme_enqueue_styles() {
+	wp_enqueue_style('main-styles', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false);	
+}
 function _ajax_wp_die_handler( $message, $title = '', $args = array() ) {
 	// Set default 'response' to 200 for Ajax requests.
 	$args = wp_parse_args(

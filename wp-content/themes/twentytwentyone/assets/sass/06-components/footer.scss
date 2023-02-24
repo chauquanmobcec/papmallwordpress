@@ -1,84 +1,83 @@
-// Footer
-.site-footer {
-	padding-top: 0;
-	padding-bottom: calc(1.7 * var(--global--spacing-vertical));
-	@extend %responsive-alignwide-width;
-
-	// Increase the top vertical spacing when there is no widget area.
-	.no-widgets & {
-		margin-top: calc(6 * var(--global--spacing-vertical));
+.footer {
+	margin-top: 12px;
+	// @include media-breakpoint-down(md) {
+	// 	padding-bottom:66px;
+	// }
+}
+.footer-main {
+	// background-color: $white;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	// @include media-breakpoint-down(md) {
+	// 	padding-top: 20px;
+	// }
+}
+.footer-title {
+	margin-bottom: 20px;
+	color: #363636;
+}
+.footer-nav {
+	list-style-type: none;
+	margin: 0;
+}
+.footer-link {
+	font-size: 16px;
+	display: inline-block;
+	margin-bottom: 10px;
+	&:hover {
+		// color: $secondary-color;
 	}
-
-	@include media(mobile-only) {
-
-		.no-widgets & {
-			margin-top: calc(3 * var(--global--spacing-vertical));
+}
+.footer-social-box {
+	list-style-type: none;
+	padding: 0;
+	margin-top: 15px;
+	li {
+		display: inline-block;
+		padding: 5px;
+		&:first-child {
+			padding-left: 0;
+		}
+		a {
+			display: block;
+			img.active {
+				display: none;
+			}
+			&:hover {
+				img:not(.active) {
+					display: none;
+				}
+				img.active {
+					display: inline-block;
+				}
+			}
 		}
 	}
 }
-
-// Footer Branding
-.site-footer > .site-info {
-	padding-top: var(--global--spacing-vertical);
-	color: var(--footer--color-text);
-	font-family: var(--footer--font-family);
-	font-size: var(--footer--font-size);
-	line-height: var(--global--line-height-body);
-	border-top: 3px solid var(--global--color-border);
-
-	.site-name {
-		text-transform: var(--branding--title--text-transform);
-		font-size: var(--branding--title--font-size);
+.copyright {
+	border-top: 1px solid #ddd;
+	// background-color: $white;
+	position: relative;
+	.container {
+		padding-top: 13px;
+		padding-bottom: 13px;
 	}
-
-	.privacy-policy,
-	.powered-by {
-		margin-top: calc(0.5 * var(--global--spacing-vertical));
+	&:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 6px;
+		// background-color: $secondary-color;
+		bottom: -6px;
+		left: 0;
 	}
-
-	@include media(desktop) {
-		display: flex;
-		align-items: center;
-
-		.site-name {
-			margin-right: calc(0.5 * var(--global--spacing-vertical));
+	&:after {
+		content: "";
+		position: absolute;
+		width: calc(100% - 100px);
+		height: 6px;
+		// background-color: $primary-color;
+		bottom: -6px;
+		left: 100px;
 		}
-
-		.privacy-policy,
-		.powered-by {
-			margin-top: initial;
-			margin-left: auto;
-		}
-
-		.privacy-policy + .powered-by {
-			margin-left: calc(0.5 * var(--global--spacing-vertical));
-		}
-	}
-
-	a {
-		color: var(--footer--color-link);
-
-		&:link,
-		&:visited,
-		&:active {
-			color: var(--footer--color-link);
-		}
-
-		&:hover {
-			color: var(--footer--color-link-hover);
-		}
-
-		&:focus {
-			color: var(--footer--color-link-hover);
-
-			.is-dark-theme & {
-				color: var(--wp--style--color--link, var(--global--color-background));
-			}
-
-			// Change colors when the body background is white.
-			.has-background-white & {
-				color: var(--wp--style--color--link, var(--global--color-white));
-			}
-		}
-	}
 }
